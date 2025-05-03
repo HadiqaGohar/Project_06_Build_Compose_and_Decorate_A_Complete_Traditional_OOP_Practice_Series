@@ -1,6 +1,6 @@
 # 🧑‍🎓 Student Grading System using `self` in Python
 
-This Python project demonstrates how to use the `self` keyword within a class to initialize and display student details. It also includes logic to evaluate and print grades based on the student's marks.
+This Python project demonstrates how to use the `self` keyword within a class to initialize and display student details. It also includes logic to evaluate and print grades based on the student's marks, along with error handling to manage invalid user inputs.
 
 ---
 
@@ -11,6 +11,7 @@ This Python project demonstrates how to use the `self` keyword within a class to
 * Displays student details using the `display()` method.
 * Accepts user input for name and marks.
 * Assigns and displays grades based on mark thresholds.
+* Handles non-numeric input errors using `try-except`.
 
 ---
 
@@ -25,34 +26,41 @@ class Student:
     def display(self):
         print(f"Name: {self.name}, Marks: {self.marks}")
 
-student = Student(input("Enter your name: "), int(input("Enter your marks: ")))
+try:
+    name = input("Enter your name: ")
+    marks = int(input("Enter your marks: "))
 
-if student.marks >= 95:
-    print("Congratulations You got A++")
-elif student.marks >= 90:
-    print("Congratulations You got A+")
-elif student.marks >= 85:
-    print("Congratulations You got B++")
-elif student.marks >= 80:
-    print("Congratulations You got B+")
-elif student.marks >= 75:
-    print("Congratulations You got B")
-elif student.marks >= 70:
-    print("Congratulations You got C++")
-elif student.marks >= 65:
-    print("Congratulations You got C+")
-elif student.marks >= 60:
-    print("Congratulations You got C")
-elif student.marks >= 55:
-    print("Congratulations You got D++")
-elif student.marks >= 50:
-    print("Congratulations You got D+")
-elif student.marks >= 45:
-    print("Congratulations You got D+")
-else:
-    print("You are failed")
+    student = Student(name, marks)
 
-student.display()
+    if student.marks >= 95:
+        print("Congratulations You got A++")
+    elif student.marks >= 90:
+        print("Congratulations You got A+")
+    elif student.marks >= 85:
+        print("Congratulations You got B++")
+    elif student.marks >= 80:
+        print("Congratulations You got B+")
+    elif student.marks >= 75:
+        print("Congratulations You got B")
+    elif student.marks >= 70:
+        print("Congratulations You got C++")
+    elif student.marks >= 65:
+        print("Congratulations You got C+")
+    elif student.marks >= 60:
+        print("Congratulations You got C")
+    elif student.marks >= 55:
+        print("Congratulations You got D++")
+    elif student.marks >= 50:
+        print("Congratulations You got D+")
+    elif student.marks >= 45:
+        print("Congratulations You got D+")
+    else:
+        print("You are failed")
+
+    student.display()
+
+except ValueError:
+    print("❌ Invalid input! Please enter numeric marks.")
 ```
 
 ---
@@ -60,9 +68,10 @@ student.display()
 ## 🛠️ How It Works
 
 1. The user is prompted to enter their name and marks.
-2. The `Student` class is instantiated with this data.
-3. A grading system checks the entered marks and prints the corresponding grade.
-4. Finally, the student's name and marks are displayed.
+2. The `Student` class is instantiated with this data using the `self` keyword.
+3. A grading system evaluates the marks and prints a congratulatory message based on the score.
+4. If the user enters non-numeric marks, a `ValueError` is caught and a helpful message is shown.
+5. Student details are then displayed using the `display()` method.
 
 ---
 
@@ -75,6 +84,12 @@ Congratulations You got A++
 Name: Hadiqa Gohar, Marks: 95
 ```
 
+```
+Enter your name: Test User  
+Enter your marks: abc  
+❌ Invalid input! Please enter numeric marks.
+```
+
 ---
 
 ## 📚 Concepts Used
@@ -83,6 +98,7 @@ Name: Hadiqa Gohar, Marks: 95
 * Object-Oriented Programming (OOP)
 * Conditional Statements
 * User Input Handling
+* Error Handling with `try-except`
 
 ---
 
@@ -92,7 +108,7 @@ Name: Hadiqa Gohar, Marks: 95
 student_grading/
 │
 ├── main.py       # Main script with class and grading logic
-└── README.md        # Project documentation
+└── README.md     # Project documentation
 ```
 
 ---
