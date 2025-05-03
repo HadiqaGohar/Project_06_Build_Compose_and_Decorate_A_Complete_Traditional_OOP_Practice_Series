@@ -105,7 +105,7 @@ Enter your marks: abc
 ## 📁 File Structure
 
 ```
-student_grading/
+01. Using self/
 │
 ├── main.py       # Main script with class and grading logic
 └── README.md     # Project documentation
